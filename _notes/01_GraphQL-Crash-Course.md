@@ -157,7 +157,75 @@ app.listen(PORT, console.log(`Server running on port ${PORT}`));
 ```
 
 # 3. Start GraphQL
+- imported `const graphqlHTTP = require('express-graphql')`
+- Added it as middleware
+``` JS index.js
+~~~ Server declaration ~~~~
+// Middleware
+app.use('/graphql', graphqlHTTP({
+  schema,
+  graphiql: process.env.NODE_ENV === 'development'
+}));
+```
+- created `schema/schema.js` and import at the top of `index.js`
 
+# 4. Start Schema
+- addded a `sampleData.js` file with some mock data for testing
+
+## Schema
+- We destructure the `projects` and `clients` object from sampleData
+- We import a couple of methods from graphql
+- We declare a `ClientType` as a new  `GraphQLObjectType` with various parameters
+  - effectively this ensures the keys have the right type
+- We then declare a `RootQuery` as a new `GraphQLObjectType`
+  - as keys:
+    - we specify the `name`
+    - we specify fields:
+      - in fields we specify the type as `ClientType`
+      - we specify an id as argument in `args`
+      - we specify a resolve method
+        - this will later contain the mongoose query but for now it just returns the result of a find call on `clients`
+
+- We then export a new `GraphQLSchema` with an object that has `query: RootQuery` as field
+
+``` JS schema/schema.js
+const { projects, clients } = require('../sampleData.js');
+
+const { 
+  GraphQLObjectType, 
+  GraphQLID, 
+  GraphQLString, 
+  GraphQLSchema 
+} = require('graphql');
+
+// Client Type
+const ClientType = new GraphQLObjectType({
+  name: 'Client',
+  fields: () => ({
+    id: { type: GraphQLID },
+    name: { type: GraphQLString },
+    email: { type: GraphQLString },
+    phone: { type: GraphQLString }
+  })
+});
+
+const RootQuery = new GraphQLObjectType({
+  name: 'RootQueryType',
+  fields: {
+    client: {
+      type: ClientType,
+      args: { id: { type: GraphQLID } },
+      resolve(parent, args){
+        return clients.find(client => client.id === args.id);
+      }
+    }
+  }
+});
+
+module.exports = new GraphQLSchema({
+  query: RootQuery
+});
+```
 
 
 
