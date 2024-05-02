@@ -156,6 +156,7 @@ app.listen(PORT, console.log(`Server running on port ${PORT}`));
 "dev": "nodemon server/index.js"
 ```
 
+# 3. Start GraphQL
 
 
 
