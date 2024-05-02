@@ -1,3 +1,131 @@
 # GraphQL Crash Course with Full Stack MERN Project notes
 
-# 1. 
+# 1. Difference between GraphQL and REST API
+ ## How REST API works
+- A REST API has endpoints for all resources
+  - The client sends a request to an endpoint
+    - then the REST API receives it
+      - routes it to an endpoint which retrieves the data from the database server
+        - The data is then returned to the client, all the data for the endpoint.
+
+flow diagram       
+```mermaid
+flowchart LR
+  Client -- GET | POST | PUT | DELETE --> REST-API 
+  REST-API -- http request --> Server
+
+  Server -- http response --> REST-API
+  REST-API --response/data--> Client
+```
+
+- All responses include ALL data
+- Many endpoints for all resources
+- The data will likely be JSON data (or HTML depenending on the API)
+
+## How GRAPQL API works
+- The GraphQL API only has a single endpoint
+- It receives queries from the client using the Apollo server.
+  - it then parses this query and sends it to database server
+  - the server send an http response
+  - graph ql then sends the info back to the client
+    - only the data that the client has asked for.
+
+flow diagram       
+```mermaid
+flowchart LR
+  Client -- Apollo Request --> GRAPHQL-API 
+  GRAPHQL-API -- http request --> Server
+
+  Server -- http response --> GRAPHQL-API
+  GRAPHQL-API --response/data--> Client
+```
+- Responses ONLY include the data asked for
+- GraphQL-API is a single endpoint
+
+## Queries Syntax
+- example of a request/query
+``` JS GraphQL Request/Query
+{
+  client(id: "100") {
+    name,
+    client {
+      name
+    }
+  }
+}
+```
+- example of a response
+``` JS Server
+{
+  "data": {
+    "project": {
+      "name": "Mobile Application",
+      "client": {
+        "name": "Tony Start"
+      }
+    }
+  }
+}
+```
+- they look quite similar and are the syntaxt thus pretty easy to work with knowing javascript
+
+## Mutations Syntax
+- To add/update data to the server
+``` JS GraphQL Mutation
+mutation {
+  addProject(
+    // What you're updating
+    name: "Mobile Application",
+    description: "This is a description",
+    status: "Not Started",
+    clientId: "1") {
+      // What you want to get back
+      name
+      description
+      status
+    }
+}
+```
+- example of response
+``` JS Server
+{
+  "data": {
+    "addProject": {
+      "name": "Mobile Application",
+      "description": "This is a description",
+      "status": "Not Started"
+    }
+  }
+}
+```
+
+## Schemas & Types
+- GraphQL server have a "schema" that specifies all of the fields as well as their "types".
+  - The most basic components of a GraphQL schema are `object types`
+
+  - Scalar types include: String, Int, Float, Boolean, ID
+``` JS GraphQL schema example
+type Project {
+  name: String!
+  description: String!,
+  status: String!
+}
+```
+
+## Getting Started
+- We're using `express-graphql` in this tutorial, this a GraphQL Server for Node.js with tools to use with Express
+- There's also `Apollo Server` and `Graph CMS` to easily setup a GraphQL API
+
+# The Stack we're using in this tutorial
+- Front-End: Apollo Client, React, Bootstrap UI
+- Server: Node.js, Express, GraphQL (express-graphql)
+- Data: Atlas, MongoDB
+
+
+
+
+
+
+
+
+
