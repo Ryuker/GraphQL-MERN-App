@@ -227,6 +227,10 @@ module.exports = new GraphQLSchema({
 });
 ```
 
+# 5. Accessing the Graphiql Interface
+[localhost:5000/graphql](http://localhost:5000/graphql) - gives us access to the interface where we can make queries
+ 
+
 
 
 
