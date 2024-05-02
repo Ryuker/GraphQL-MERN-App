@@ -116,11 +116,21 @@ type Project {
 - We're using `express-graphql` in this tutorial, this a GraphQL Server for Node.js with tools to use with Express
 - There's also `Apollo Server` and `Graph CMS` to easily setup a GraphQL API
 
-# The Stack we're using in this tutorial
+## The Stack we're using in this tutorial
 - Front-End: Apollo Client, React, Bootstrap UI
 - Server: Node.js, Express, GraphQL (express-graphql)
 - Data: Atlas, MongoDB
 
+# 2. Create Express Server
+## Setup
+**init - to create a package.json file** 
+``` JS Terminal
+npm init -y
+```
+## Install Dependencies
+``` JS Terminal
+npm i express express-graphql graphql mongoose cors colors
+```
 
 
 
