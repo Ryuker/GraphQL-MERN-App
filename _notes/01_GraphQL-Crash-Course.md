@@ -239,6 +239,10 @@ module.exports = new GraphQLSchema({
 }
 ```
 
+# 6. Query to get all clients
+time in vid 30:40
+
+
 
 
 
