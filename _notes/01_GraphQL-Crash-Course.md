@@ -128,9 +128,16 @@ type Project {
 npm init -y
 ```
 ## Install Dependencies
+**build dependencies**
 ``` JS Terminal
 npm i express express-graphql graphql mongoose cors colors
 ```
+**dev dependencies**
+``` JS Terminal
+npm i -D nodemon dotenv
+```
+
+
 
 
 
