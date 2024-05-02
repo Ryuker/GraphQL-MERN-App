@@ -137,6 +137,28 @@ npm i express express-graphql graphql mongoose cors colors
 npm i -D nodemon dotenv
 ```
 
+## basic express server setup
+- Created `server/index.js`
+- Added basic code to run the server
+``` JS index.js
+const express = require('express');
+require('dotenv').config();
+
+const PORT = process.env.PORT || 5000;
+
+const app = express();
+
+app.listen(PORT, console.log(`Server running on port ${PORT}`));
+```
+- Added script to run the server to `package.json`
+``` JS package.json
+"start": "node server/index.js",
+"dev": "nodemon server/index.js"
+```
+
+
+
+
 
 
 

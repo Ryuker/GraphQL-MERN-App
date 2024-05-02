@@ -4,7 +4,8 @@
   "description": "Following along with GraphQL Crash Course in the MERN stack of Traversy Media",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js"
   },
   "keywords": [],
   "author": "",
