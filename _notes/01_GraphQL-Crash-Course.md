@@ -1,4 +1,5 @@
 # GraphQL Crash Course with Full Stack MERN Project notes
+[tut repo](https://github.com/bradtraversy/project-mgmt-graphql/tree/main)
 
 # 1. Difference between GraphQL and REST API
  ## How REST API works
