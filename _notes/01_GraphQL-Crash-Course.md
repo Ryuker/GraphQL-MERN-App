@@ -404,6 +404,8 @@ const RootQuery = new GraphQLObjectType({
 });
 ```
 
+- left vid at 50:01
+
 
 
 
