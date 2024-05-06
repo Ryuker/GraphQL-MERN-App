@@ -285,6 +285,19 @@ project: {
 },
 ```
 
+# 8. Getting the data of the client into the project query
+- expanded `ProjectType` with
+``` JS schema.js
+client: {
+  type: ClientType,
+  resolve(parent, args){
+    return clients.find(client => client.id === parent.clientId);
+  }
+}
+```
+
+# 9. Creating a MongoDB Database
+
 
 
 
