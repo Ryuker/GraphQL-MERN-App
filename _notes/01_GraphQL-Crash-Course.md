@@ -297,6 +297,27 @@ client: {
 ```
 
 # 9. Creating a MongoDB Database
+- configured database on the webste and and hooked it up to compass
+
+## Connecting the server to the database
+- added `config/db.js`
+``` JS 
+const mongoose = require('mongoose');
+
+const connectDB = async () => {
+  const conn = await mongoose.connect(process.env.MONGO_URI);
+
+  console.log(`MongoDB connected: ${conn.connection.host}`.cyan.underline.bold);
+};
+
+module.exports = connectDB;
+``` 
+- imported colors and connectDB into index.js
+- called `connectDB` under server declaration
+``` JS
+// Connect to database
+connectDB();
+```
 
 
 
