@@ -319,6 +319,56 @@ module.exports = connectDB;
 connectDB();
 ```
 
+# Creating Mongoose Models
+## Client Model
+- Added `models/Client.js` with a simple mongoose schema
+``` JS models/Client.js
+const mongoose = require('mongoose');
+
+const ClientSchema = new mongoose.Schema({
+  name: {
+    type: String,
+  },
+  email: {
+    type: String,
+  },
+  phone: {
+    type: String,
+  }
+});
+
+module.exports = mongoose.model('Client', ClientSchema);
+```
+## Project Model
+- similar thing as for the client model but
+  - the lowest field is a clientID that is gotten from a relationship with the `Client` model
+    - this needs the type `mongoose.Schema.Types.ObjectId` and a ref `Client`
+
+``` JS schema/Projects.js
+const mongoose = require('mongoose');
+
+const ProjectSchema = new mongoose.Schema({
+  name: {
+    type: String,
+  },
+  description: {
+    type: String,
+  },
+  status: {
+    type: String,
+    enum: ['Not Starter', 'In Progress', 'Completed'],
+  },
+  clientId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Client',
+  }
+});
+
+module.exports = mongoose.model('Project', ProjectSchema );
+```
+
+
+
 
 
 
