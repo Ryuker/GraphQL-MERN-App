@@ -253,6 +253,37 @@ clients: {
   },
 ```
 
+# 7. Project Type and Queries
+- Added a Project type
+``` JS schema.js
+// Project Type
+const ProjectType = new GraphQLObjectType({
+  name: 'Project',
+  fields: () => ({
+    id: { type: GraphQLID },
+    name: { type: GraphQLString },
+    description: { type: GraphQLString },
+    status: { type: GraphQLString },
+  })
+});
+```
+
+- Updated `RootQuery` with a Projects and Project field
+``` JS schema.js
+projects: {
+  type: new GraphQLList(ProjectType),
+  resolve(parent, args) {
+    return projects;
+  }
+},
+project: {
+  type: ProjectType,
+  args: { id: { type: GraphQLID } },
+  resolve(parent, args){
+    return projects.find(project => project.id === args.id);
+  }
+},
+```
 
 
 
