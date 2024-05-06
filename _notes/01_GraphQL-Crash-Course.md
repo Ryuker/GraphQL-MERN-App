@@ -241,7 +241,17 @@ module.exports = new GraphQLSchema({
 ```
 
 # 6. Query to get all clients
-time in vid 30:40
+- added a cients field to the `RootQuery` object
+  - this passes ClientType as a parameter when creating a `GraphQLList` instance
+  - this allows for returning all the clients with data filtering in the query
+``` JS schema.js
+clients: {
+    type: new GraphQLList(ClientType),
+    resolve(parent, args) {
+      return clients;
+    }
+  },
+```
 
 
 
