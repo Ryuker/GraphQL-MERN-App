@@ -319,7 +319,7 @@ module.exports = connectDB;
 connectDB();
 ```
 
-# Creating Mongoose Models
+# 10. Creating Mongoose Models
 ## Client Model
 - Added `models/Client.js` with a simple mongoose schema
 ``` JS models/Client.js
@@ -367,7 +367,42 @@ const ProjectSchema = new mongoose.Schema({
 module.exports = mongoose.model('Project', ProjectSchema );
 ```
 
-
+# 11. Using the models in queries
+- Imported the models into `schema.js` 
+- modified `RootQuery` to use the models
+``` JS schema.js
+const RootQuery = new GraphQLObjectType({
+  name: 'RootQueryType',
+  fields: {
+    projects: {
+      type: new GraphQLList(ProjectType),
+      resolve(parent, args) {
+        return Project.find();
+      }
+    },
+    project: {
+      type: ProjectType,
+      args: { id: { type: GraphQLID } },
+      resolve(parent, args){
+        return Project.findById(args.id);
+      }
+    },
+    clients: {
+      type: new GraphQLList(ClientType),
+      resolve(parent, args) {
+        return Client.find();
+      }
+    },
+    client: {
+      type: ClientType,
+      args: { id: { type: GraphQLID } },
+      resolve(parent, args){
+        return Client.findById(args.id);
+      }
+    }
+  }
+});
+```
 
 
 
