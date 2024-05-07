@@ -403,8 +403,38 @@ const RootQuery = new GraphQLObjectType({
   }
 });
 ```
+# 12. Mutate Data from MongoDB
+[GraphQL Traversy Gists](https://gist.github.com/bradtraversy)
 
-- left vid at 50:01
+- Added a mutations object in `Schema.js`
+  - in args we use `GraphQLNonNull` to ensure the user needs to pass in a value for this field
+  - we also specify it has to be a string 
+``` JS schema.js
+~~~ Root Query ~~~~
+// Mutations
+const mutation = new GraphQLObjectType({
+  name: 'Mutation',
+  fields: {
+    addClient: {
+      type: ClientType,
+      args: {
+        name: { type: GraphQLNonNull(GraphQLString) },
+        email: { type: GraphQLNonNull(GraphQLString) },
+        phone: { type: GraphQLNonNull(GraphQLString) },
+      },
+      resolve(parent, args) {
+        const client = new Client({
+          name: args.name,
+          email: args.email,
+          phone: args.phone
+        });
+
+        return client.save();
+      }
+    },
+  }
+});
+```
 
 
 
