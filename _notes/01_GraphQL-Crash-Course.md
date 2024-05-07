@@ -573,7 +573,7 @@ updateProject: {
 
 
 # 14. Frontend
-
+left vid at 01:17:34 
 
 
 
