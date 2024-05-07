@@ -501,6 +501,37 @@ addProject: {
   }
 }
 ```
+- Query to find the client data of a project
+``` JS
+{
+  projects {
+    name
+    status
+    client {
+      name
+      email
+    }
+  }
+}
+```
+
+## Delete a project
+- Added `deleteProject` mutation 
+``` JS schema.js
+~~~ Add Project ~~~
+// Delete a project
+deleteProject: {
+  type: ProjectType,
+  args: {
+    id: { type: GraphQLNonNull(GraphQLID) }
+  },
+  resolve(parent, args) {
+    return Project.findByIdAndDelete(args.id);
+  }
+}
+```
+
+
 
 
 
