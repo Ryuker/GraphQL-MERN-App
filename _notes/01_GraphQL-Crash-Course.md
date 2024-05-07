@@ -407,6 +407,8 @@ const RootQuery = new GraphQLObjectType({
 [GraphQL Traversy Gists](https://gist.github.com/bradtraversy/fc527bc9a4659ab8de8e8066f3498723)
 
 - Added a mutations object in `Schema.js`
+
+## addClient mutation
   - in args we use `GraphQLNonNull` to ensure the user needs to pass in a value for this field
   - we also specify it has to be a string 
 ``` JS schema.js
@@ -435,6 +437,34 @@ const mutation = new GraphQLObjectType({
   }
 });
 ```
+
+- Example of a mutation query for adding a client
+``` JS
+mutation {
+  addClient(name: "Tony Stark", email: "ironman@gmail.com", phone: "955-365-3376") {
+    id
+    name
+    email
+    phone
+  }
+}
+```
+
+## deleteClient mutation
+``` JS schema.js
+// Delete a client
+deleteClient: {
+  type: ClientType,
+  args: {
+    id: { type: GraphQLNonNull(GraphQLID) },
+  },
+  resolve(parent, args) {
+    return Client.findByIdAndDelete(args.id);
+  }
+}
+```
+
+
 
 
 
