@@ -404,7 +404,7 @@ const RootQuery = new GraphQLObjectType({
 });
 ```
 # 12. Mutate Data from MongoDB
-[GraphQL Traversy Gists](https://gist.github.com/bradtraversy)
+[GraphQL Traversy Gists](https://gist.github.com/bradtraversy/fc527bc9a4659ab8de8e8066f3498723)
 
 - Added a mutations object in `Schema.js`
   - in args we use `GraphQLNonNull` to ensure the user needs to pass in a value for this field
