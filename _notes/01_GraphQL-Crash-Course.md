@@ -464,6 +464,44 @@ deleteClient: {
 }
 ```
 
+# 13. Project Mutations
+- Added `addProject` mutation
+  - status is a `GraphQLEnumType` with a name, value options and a default value
+  - clientId is a `GraphQLID`
+  - The rest is similar to what was written for the client mutations
+``` JS schema.js
+~~~ Client mutations ~~~
+// Add a project
+addProject: {
+  type: ProjectType,
+  args: {
+    name: { type: GraphQLNonNull(GraphQLString) },
+    description: { type: GraphQLNonNull(GraphQLString)},
+    status: { type: new GraphQLEnumType({
+      name: 'ProjectStatus',
+      values: {
+        'new': { value: 'Not Started'},
+        'progress': { value: 'In Progress'},
+        'completed': { value: 'Completed'}
+      }
+    }),
+    defaultValue: 'Not Started',
+    },
+    clientId: { type: GraphQLNonNull(GraphQLID)}, 
+  },
+  resolve(parent, args) {
+    const project = new Project({
+      name: args.name,
+      description: args.description,
+      status: args.status,
+      clientId: args.clientId,
+    });
+
+    return project.save();
+  }
+}
+```
+
 
 
 
