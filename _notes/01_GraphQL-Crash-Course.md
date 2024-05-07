@@ -356,7 +356,7 @@ const ProjectSchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    enum: ['Not Starter', 'In Progress', 'Completed'],
+    enum: ['Not Started', 'In Progress', 'Completed'],
   },
   clientId: {
     type: mongoose.Schema.Types.ObjectId,
@@ -480,9 +480,9 @@ addProject: {
     status: { type: new GraphQLEnumType({
       name: 'ProjectStatus',
       values: {
-        'new': { value: 'Not Started'},
-        'progress': { value: 'In Progress'},
-        'completed': { value: 'Completed'}
+        new: { value: 'Not Started'},
+        progress: { value: 'In Progress'},
+        completed: { value: 'Completed'}
       }
     }),
     defaultValue: 'Not Started',

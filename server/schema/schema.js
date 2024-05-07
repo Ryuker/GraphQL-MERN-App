@@ -111,17 +111,17 @@ const mutation = new GraphQLObjectType({
       args: {
         name: { type: GraphQLNonNull(GraphQLString) },
         description: { type: GraphQLNonNull(GraphQLString)},
-        status: { type: new GraphQLEnumType({
-          name: 'ProjectStatus',
-          values: {
-            'new': { value: 'Not Started'},
-            'progress': { value: 'In Progress'},
-            'completed': { value: 'Completed'}
-          }
-        }),
-        defaultValue: 'Not Started',
-       },
-       clientId: { type: GraphQLNonNull(GraphQLID)}, 
+        status: {
+          type: new GraphQLEnumType({
+            name: 'ProjectStatus',
+            values: {
+              new: { value: 'Not Started' },
+              progress: { value: `In Progress` },
+              completed: { value: 'Completed' },
+            }}),
+          defaultValue: 'Not Started',
+        },
+        clientId: { type: GraphQLNonNull(GraphQLID)}, 
       },
       resolve(parent, args) {
         const project = new Project({
