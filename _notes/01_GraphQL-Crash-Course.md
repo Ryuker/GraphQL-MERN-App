@@ -531,6 +531,46 @@ deleteProject: {
 }
 ```
 
+## Update a project
+- couple of important things
+  - name and description don't require a value
+  - the name of the enum needs to be unique
+  - we use $set in the resolve
+``` JS schema.js
+~~~ Delete a project ~~~
+// Update a project
+updateProject: {
+  type: ProjectType,
+  args: {
+    id: { type: GraphQLNonNull(GraphQLID)},
+    name: { type: GraphQLString},
+    description: { type: GraphQLString},
+    status: {
+      type: new GraphQLEnumType({
+        name: 'ProjectStatusUpdate',
+        values: {
+          new: { value: 'Not Started' },
+          progress: { value: `In Progress` },
+          completed: { value: 'Completed' },
+        }}),
+    }, 
+  },
+  resolve(parent, args) {
+    return Project.findByIdAndUpdate(
+      args.id, 
+      {
+        $set: {
+          name: args.name,
+          description: args.description,
+          status: args.status
+        },
+      },
+      { new: true }
+    );
+  }
+}
+```
+
 
 
 
