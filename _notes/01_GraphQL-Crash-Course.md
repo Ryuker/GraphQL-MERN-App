@@ -598,8 +598,39 @@ npm create vite@latest client
 - added cdn imports to index.html
   - these come from bootstrap.com (both the css and js import)
 
-# 15. 
+# 15. Header Component
+- added `Header.jsx` in components folder
+  - used `rfce` to generate boilerplate
+  - imported logo
+- Added nav element for the logo
+``` JS Header.jsx
+<nav className='navbar bg-light mb-4 p-0'>
+  <div className="container">
+    <div className="navbar-brand" href="/">
+      <div className="d-flex">
+        <img src={logo} alt="logo" className="mr-2"/>
+        <div>Project Mgmt</div>
+      </div>
+    </div>
+  </div>
+</nav>
+```
+- imported the header into App.jsx
 
+# 16. Setting up Apollo
+- imported apollo and set up a client
+``` JS App.jsx
+import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
+
+const client = new ApolloClient({
+  uri: 'http://localhost:5000/graphql',
+  cache: new InMemoryCache
+});
+```
+- Wrapped the app contents into 
+  - `<ApolloProvider client={client}> App Contents</AppolloProvider>`
+
+# 17. 
 
 
 
