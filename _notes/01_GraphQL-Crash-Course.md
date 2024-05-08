@@ -733,7 +733,7 @@ export { GET_CLIENTS };
   - and removed query and gql import from this component
 
 # 19. Spinner Component
-
+left vid at: 1:38:34
 
 
 
