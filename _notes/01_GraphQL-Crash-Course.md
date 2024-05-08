@@ -660,7 +660,7 @@ const GET_CLIENTS = gql`
   - used nullcoellencence operator to display the correct message in return method
   ``` JS
    <>
-      {!loading && !error (
+      {!loading && !error && (
         <h1>Clients</h1>
       )}
     </>

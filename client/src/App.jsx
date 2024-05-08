@@ -1,4 +1,4 @@
-import Header from './components/Header';
+import Header from './components/Header.jsx';
 import Clients from './components/Clients';
 import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
 
