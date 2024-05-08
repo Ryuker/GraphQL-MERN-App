@@ -573,7 +573,20 @@ updateProject: {
 
 
 # 14. Frontend
-left vid at 01:17:34 
+## Server setup
+- This is different from the tutorial but I find it more up to date.
+``` JS Terminal
+npm create vite@latest client
+```
+- settings: 
+  - JavaScript + SWC
+
+## client dependencies
+- Install Apollo        | `npm i @apollo/client`
+- Install GraphQL       | `npm i graphql`
+- Install React-Router  | `npm i react-router-dom`
+- Install React-Icons   | `npm i react-icons` 
+
 
 
 
