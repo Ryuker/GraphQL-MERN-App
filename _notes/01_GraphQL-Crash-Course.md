@@ -630,7 +630,44 @@ const client = new ApolloClient({
 - Wrapped the app contents into 
   - `<ApolloProvider client={client}> App Contents</AppolloProvider>`
 
-# 17. 
+# 17. Fetch & Display Clients
+- added `components/Clients.jsx` and imported into `App.jsx`
+- imported functions from apollo
+  - `import { gql, useQuery } from '@apollo/client';`
+- created a `GET_ClIENTS` constant
+  - this has the query. It's the same we use in grapiql.
+``` JS Clients.jsx
+const GET_CLIENTS = gql`
+  query getClients {
+    clients {
+      id
+      name
+      email
+      phone
+    }
+  }
+`;
+```
+- in the component
+  - destructured the results of getQuery that uses GET_CLIENTS as paramaters
+    - `const { loading, errors, data } = useQuery(GET_CLIENTS);`
+    - useQuery handles it's own states, so we don't need to use context or redux
+  - specified conditionals for displaying loading and an error message
+    ``` JS
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Something Went Wrong</p>;
+    ```
+  - used nullcoellencence operator to display the correct message in return method
+  ``` JS
+   <>
+      {!loading && !error (
+        <h1>Clients</h1>
+      )}
+    </>
+  ```
+
+  ## Client CORS Access on Server
+
 
 
 
