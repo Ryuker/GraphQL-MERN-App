@@ -667,6 +667,7 @@ const GET_CLIENTS = gql`
   ```
 
   ## Client CORS Access on Server
+  - added `app.use(cors());` as middleware in `index.js` on the server
 
 
 
