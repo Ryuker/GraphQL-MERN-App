@@ -669,6 +669,47 @@ const GET_CLIENTS = gql`
   ## Client CORS Access on Server
   - added `app.use(cors());` as middleware in `index.js` on the server
 
+## Client Table
+- Added client table
+```JS Clients.jsx
+<table className='table table-hover mt-3'>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {data.clients.map(client => (
+      <ClientRow key={client.id} client={client} />
+    ))}
+  </tbody>
+</table>
+```
+## ClientRow component
+- Added ClientRow component
+  - this returns a td to markup the data
+``` JS ClientRow.jsx
+import { FaTrash } from 'react-icons/fa';
+
+export default function ClientRow( { client }) {
+  return (
+    <tr>
+      <td>{ client.name }</td>
+      <td>{ client.email }</td>
+      <td>{ client.phone }</td>
+      <td>
+        <button className="btn btn-danger btn-sm">
+          <FaTrash />
+        </button>
+      </td>
+    </tr>
+  )
+}
+```
+
 
 
 
