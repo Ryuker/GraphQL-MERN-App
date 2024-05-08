@@ -710,6 +710,29 @@ export default function ClientRow( { client }) {
 }
 ```
 
+# 18. Adding other GraphQL client queries
+- added `queries/clientQueries.js` to the src folder
+- moved query code in here
+``` JS clientQueries.js
+import { gql } from '@apollo/client';
+
+const GET_CLIENTS = gql`
+  query getClients {
+    clients {
+      id
+      name
+      email
+      phone
+    }
+  }
+`;
+
+export { GET_CLIENTS };
+```
+- imported `GET_CLIENTS` into `Clients.jsx`
+  - and removed query and gql import from this component
+
+
 
 
 
