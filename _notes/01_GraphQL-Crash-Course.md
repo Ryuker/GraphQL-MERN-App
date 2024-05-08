@@ -587,6 +587,19 @@ npm create vite@latest client
 - Install React-Router  | `npm i react-router-dom`
 - Install React-Icons   | `npm i react-icons` 
 
+## Clean up frontend
+- cleaned up src folder
+- added graphql logo to assets folder
+- added components folder
+- copied over css from the tutorial repo
+- cleaned up App.jsx
+
+## Bootstrap import from CDN
+- added cdn imports to index.html
+  - these come from bootstrap.com (both the css and js import)
+
+# 15. 
+
 
 
 
