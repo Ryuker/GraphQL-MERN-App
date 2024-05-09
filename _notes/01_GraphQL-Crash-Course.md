@@ -743,6 +743,26 @@ export { GET_CLIENTS };
 ```
 - imported into `Clients.jsx` and returned at following conditional : `if (loading) return <Spinner />;`
 
+# 20. Delete Client Mutation
+- added `mutations/clientMutations.js`
+- added graphql query to delete a client
+``` JS clientMutations.js
+import { gql } from '@apollo/client';
+
+const DELETE_CLIENT = gql`
+  mutation deleteClient($id: ID!) {
+    deleteClient(id: $id) {
+      id
+      name
+      email
+      phone
+    }
+  }
+`;
+
+export { DELETE_CLIENT };
+```
+
 
 
 
