@@ -1000,6 +1000,52 @@ const GET_PROJECTS = gql`
 export { GET_PROJECTS };
 ```
 
+## ProjectCard component
+- Added `components/ProjectCard.jsx`
+  - nothing special here yet
+``` JS ProjectCard.jsx
+export default function ProjectCard( { project } ) {
+  return (
+    <div className="col-md-4">
+      <div className="card mb-3">
+        <div className="card-body">
+          <div className="d-flex justify-content-between align-items-center">
+            <h5 className="card-title">{project.name}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+```
+
+## Displaying Projects
+- Added `components/Projects.jsx`
+- imported Spinner, useQuery, GET_PROJECTS and ProjectCard
+
+- added component code to map through the projects if the result is greater than 0
+  - we use `ProjectCard` to display the data
+``` JS Projects.jsx
+export default function Projects() {
+  const { loading, error, data } = useQuery(GET_PROJECTS);
+
+  if (loading) return <Spinner/>;
+  if (error) return <p>Something Went Wrong</p>;
+
+  return (
+    <>
+      { data.projects.length > 0 ? (
+        <div className="row">
+          { data.projects.map(project => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
+        </div>) 
+        : (<p>No Projects</p>)}
+    </>
+  )
+}
+``` 
+
 
 
 
