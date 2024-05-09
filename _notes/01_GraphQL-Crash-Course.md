@@ -733,7 +733,16 @@ export { GET_CLIENTS };
   - and removed query and gql import from this component
 
 # 19. Spinner Component
-left vid at: 1:38:34
+- Added `Spinner.jsx` to components with following html
+``` JS Spinner.jsx
+<div className="d-flex justify-content-center">
+  <div className="spinner-border" role="status">
+    <span className="sr-only">Loading...</span>
+  </div>
+</div>
+```
+- imported into `Clients.jsx` and returned at following conditional : `if (loading) return <Spinner />;`
+
 
 
 
