@@ -806,7 +806,35 @@ const [deleteClient] = useMutation(DELETE_CLIENT, {
 ```
 
 ## Preventing the `cache data may be lost` apollo error
-
+- added a cache to `App.jsx` with typePolicies specified
+  - this calls merge to merge the data
+``` JS App.jsx
+const cache = new InMemoryCache({
+  typePolicies: {
+    Query: {
+      fields: {
+        clients: {
+          merge(existing, incoming) {
+            return incoming
+          }
+        },
+        projects: {
+          merge(existing, incoming) {
+            return incoming
+          }
+        }
+      }
+    }
+  }
+});
+```
+- we use this in the ApolloClient
+``` JS App.jsx
+const client = new ApolloClient({
+  uri: 'http://localhost:5000/graphql',
+  cache
+});
+```
 
 
 
