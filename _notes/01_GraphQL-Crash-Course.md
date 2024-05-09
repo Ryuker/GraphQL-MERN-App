@@ -980,6 +980,27 @@ setEmail('');
 setPhone('');
 ```
 
+# 22. Displaying Project in the client
+## Adding the project queries
+- continuation of the steps to specify client queries
+  - added `queries/projectQueries.js`
+``` JS projectQueries.js
+import { gql } from '@apollo/client';
+
+const GET_PROJECTS = gql`
+  query getProjects{
+    projects {
+      id
+      name
+      status
+    }
+  }
+`;
+
+export { GET_PROJECTS };
+```
+
+
 
 
 
