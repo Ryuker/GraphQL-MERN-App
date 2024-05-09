@@ -777,6 +777,37 @@ const [deleteClient] = useMutation(DELETE_CLIENT, {
 ``` 
 - on the button we then call `onClick={deleteClient}`
 
+## Updating the client dom afterr running a mutation
+- there's 2 methods for this
+
+1. refetching the queries when `deleteClient` is called
+  - this is fine if you don't do it too much
+    - else it might start to bog down the application
+``` JS ClientRow.jsx
+const [deleteClient] = useMutation(DELETE_CLIENT, {
+  variables: { id: client.id },
+  refetchQueries: [{ query: GET_CLIENTS }]
+});
+```
+
+2. updating the cache
+``` JS ClientRow
+const [deleteClient] = useMutation(DELETE_CLIENT, {
+  variables: { id: client.id },
+  update(cache, { data: { deleteClient }}){
+    const { clients } = cache.readQuery({ query: GET_CLIENTS});
+
+    cache.writeQuery({
+      query: GET_CLIENTS,
+      data: { clients: clients.filter(client => client.id !== deleteClient.id)}
+    })
+  }
+}
+```
+
+## Preventing the `cache data may be lost` apollo error
+
+
 
 
 
