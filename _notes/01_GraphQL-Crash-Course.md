@@ -936,6 +936,49 @@ const onSubmit = (e) => {
 ``` JS AddClientModal.jsx
 <form onSubmit={onSubmit}>
 ```
+## Adding addClient Mutation
+- added ADD_CLIENTS query to `clientMutations.js`
+``` JS mutations/clientMutations.js
+const ADD_CLIENT = gql`
+  mutation addClient($name: String!, $email: String!, $phone: String!) {
+    addClient(name: $name, email: $email, phone: $phone) {
+      id
+      name
+      email
+      phone
+    }
+  }
+`;
+```
+- imported ADD_CLIENTS and GET_CLIENTS into `AddClientModal.jsx`
+- added a mutation to the component
+  - similar to delete
+  - we use the spread operator to get the existing clients and then add the new client result to it
+``` JS AddClientModal.jsx
+const [ addClient ] = useMutation(ADD_CLIENT, {
+  variables: { name, email, phone },
+  update(cache, { data: { addClient }}){
+    const { clients } = cache.readQuery({ query: GET_CLIENTS});
+
+    cache.writeQuery({
+      query: GET_CLIENTS,
+      data: { clients: [...clients, addClient] }
+    })
+    }
+})
+```
+- in `onSubmit` we call addClient after some validation
+``` JS AddClientModal.jsx
+if(name === '' || email === '' || phone === ''){
+  return alert('Please fill in all fields');
+} 
+
+addClient(name, email, phone);
+
+setName('');
+setEmail('');
+setPhone('');
+```
 
 
 
