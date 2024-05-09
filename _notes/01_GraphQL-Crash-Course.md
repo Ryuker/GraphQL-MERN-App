@@ -763,6 +763,19 @@ const DELETE_CLIENT = gql`
 export { DELETE_CLIENT };
 ```
 
+## Using delete client mutation in ClientRow component
+- imported `useMutation` from apollo/client
+- imported DELETE_CLIENT mutation from `clientMutations.js`
+- in the component:
+  - added a constant called deleteClient
+    - this is destructured from to the result of useMutation
+      - useMutation takes in DElETE_CLIENT (the query), and an object with the id.
+``` JS ClientRow
+const [deleteClient] = useMutation(DELETE_CLIENT, {
+    variables: { id: client.id }
+  });` 
+``` 
+- on the button we then call `onClick={deleteClient}`
 
 
 
