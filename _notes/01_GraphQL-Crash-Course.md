@@ -1055,6 +1055,8 @@ export default function Projects() {
 }
 ``` 
 
+# 23. React Router & Pages Setup
+left vid at 02:14:53
 
 
 
