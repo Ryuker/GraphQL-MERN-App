@@ -1292,6 +1292,44 @@ return (
 )
 ```
 
+## Get clients for the modal
+- desctructured the results of GET_CLIENTS 
+``` JS AddProjectModal.jsx 
+// Get Clients for select
+const { loading, error, data } = useQuery(GET_CLIENTS);`
+```
+
+- added conditionals for rendering when loading or when there's an error
+``` JS AddProjectModal.jsx
+if (loading) return null
+if (error) return 'Something Went Wrong';
+```
+
+- Wrapped all of the return contents into a conditional
+``` JS AddProjectModal.jsx
+{ !loading && !error && (
+  <>
+  ~~~ Project Modal Layout goes here ~~~
+  </>
+) }
+```
+- Under the status field added an element to display a selectbox for the clients
+  - this maps over the clients returned from the query
+  ``` JS AddProjectModal.jsx
+  <div className="mb-3">
+    <label className="form-label">Client</label>
+    <select id="clientId" className="form-select" 
+    value={clientId} onChange={(e) => setClientId(e.target.value)}>
+      <option value="">Select Client</option>
+      {data.clients.map(client => (
+        <option key={client.id} value={client.id}>{client.name}</option>
+      ))}
+    </select>
+  </div>
+  ```
+
+
+
 
 
 
