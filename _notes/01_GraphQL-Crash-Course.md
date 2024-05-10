@@ -1089,6 +1089,26 @@ export default function Projects() {
 </>
 ```
 
+## Not Found page
+- Populated component return
+``` JS NotFound.jsx
+<div className="d-flex flex-column justify-content-center align-items-center mt-5">
+  <FaExclamationTriangle className="text-danger" size="5-em" />
+  <h1>404</h1>
+  <p className="lead">Sorry, this page does not exist</p>
+  <Link to="/" className="btn btn-primary">
+    Go Back 
+  </Link>
+</div>
+```
+- in App.jsx imported the component 
+  - in the Routes element put it below the other pages with a 'path='*' to cover all other page routes
+  ``` JS App.jsx
+  <Route path='*' element={<NotFound />} />
+  ```
+
+
+
 
 
 
