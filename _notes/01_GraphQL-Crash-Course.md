@@ -850,18 +850,18 @@ export default function AddClientModal() {
       <button type="button" 
         className="btn btn-secondary" 
         data-bs-toggle="modal" 
-        data-bs-target="#clientModal">
+        data-bs-target="#addClientModal">
         <div className="d-flex align-items-center">
           <FaUser className='icon'/>
           <div>Add Client</div>
         </div>
       </button>
   
-      <div className="modal fade" id="clientModal" aria-labelledby="clientModalLabel" aria-hidden="true">
+      <div className="modal fade" id="addClientModal" aria-labelledby="addClientModalLabel" aria-hidden="true">
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
-              <h1 className="modal-title fs-5" id="clientModalLabel">Modal title</h1>
+              <h1 className="modal-title fs-5" id="addClientModalLabel">New Client</h1>
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body">
@@ -1193,6 +1193,105 @@ if (error) return <p>Something Went Wrong</p>;
   </ul>
 </>
 ```
+
+# 25. Add Project Modal
+- Added `AddProjectModal` component
+- imports:
+``` JS AddProjectModal.jsx
+import { useState } from 'react';
+import { FaList } from 'react-icons/fa';
+import { useMutation, useQuery } from '@apollo/client';
+import { GET_PROJECTS } from '../queries/projectQueries';
+```
+- states:
+``` JS AddProjectModal.jsx
+const [name, setName] = useState('');
+const [description, setDescription] = useState('');
+const [status, setStatus] = useState('new');
+const [clientId, setClientId] = useState('');
+```
+- onSubmit function
+  - temporary untill we implement the GET_CLIENT query
+``` JS AddProjectModal.jsx
+const onSubmit = (e) => {
+  e.preventDefault();
+  
+  if(name === '' || description === '' || status === ''){
+    return alert('Please fill in all fields');
+  } 
+
+  setName('');
+  setDescription('');
+  setStatus('');
+};
+```
+
+- component return function
+  - very similar to `AdddClientModal` but the form fiels are a bit different
+    - for the status we use a `select` element
+    - for the description we use a `textarea` element
+``` JS AddProjectModal.jsx
+return (
+  <>
+    <button type="button" 
+      className="btn btn-primary" 
+      data-bs-toggle="modal" 
+      data-bs-target="#addProjectModal">
+      <div className="d-flex align-items-center">
+        <FaList className='icon'/>
+        <div>New Project</div>
+      </div>
+    </button>
+
+    <div className="modal fade" id="addProjectModal" aria-labelledby="clientModalLabel" aria-hidden="true">
+      <div className="modal-dialog">
+        <div className="modal-content">
+          <div className="modal-header">
+            <h1 className="modal-title fs-5" id="clientModalLabel">New Project</h1>
+            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div className="modal-body">
+            <form onSubmit={onSubmit}>
+              <div className="mb-3">
+                <label className="form-label">Name</label>
+                <input 
+                  type="text" className="form-control" 
+                  id="name" value={name} 
+                  onChange={ (e) => setName(e.target.value) } />
+              </div>
+              <div className="mb-3">
+                <label className="form-label">Description</label>
+                <textarea 
+                  className="form-control" 
+                  id="description" value={description} 
+                  onChange={ (e) => setDescription(e.target.value) } />
+              </div>
+              <div className="mb-3">
+                <label className="form-label">Status</label>
+                <select 
+                  className="form-select" 
+                  id="status" value={status} 
+                  onChange={ (e) => setStatus(e.target.value) }>
+                    <option value="new">Not Started</option>
+                    <option value="progress">In Progress</option>
+                    <option value="completed">Completed</option>
+                  </select>
+              </div>
+              <button 
+                type="submit" 
+                data-bs-dismiss="modal" 
+                className="btn btn-primary">
+                  Submit
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </>
+)
+```
+
 
 
 
