@@ -1330,18 +1330,24 @@ if (error) return 'Something Went Wrong';
 
 ## AddProject Mutation
 - Added `ADD_PROJECT` mutation to `mutations/projectMutations.jsx`
+  - largely repetition of the addClient query
+  - but status's type if of ProjectStatus, this type was defined on the backend
+  
 ``` JS projectMutations.jsx
 import { gql } from '@apollo/client';
 
 const ADD_PROJECT = gql`
-  mutation addClient($name: String!, $description: String!, $status: String!, $clientId: ID! ) {
+  mutation addProject($name: String!, $description: String!, $status: ProjectStatus!, $clientId: ID! ) {
     addProject(name: $name, description: $description, status: $status, clientId: $clientId) {
       id
       name
       description
       status
       client {
+        id
         name
+        email
+        phone
       }
     }
   }
