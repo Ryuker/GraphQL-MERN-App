@@ -1118,7 +1118,28 @@ export default function Project() {
 ```
 - imported into App.jsx and added inside Routes component
   - `<Route path='/projects/:id' element={<Project />} />` | We're using /:id so we can get a unique project by id
-  
+
+## Single Project query
+- added `GET_PROJECT` query
+  - very simple repetition of the other queries
+``` JS projectQueries.js
+const GET_PROJECT = gql`
+  query getProject($id: ID!) {
+    project(id: $id) {
+      id
+      name
+      description
+      status
+      client {
+        id
+        name
+        email
+        phone
+      }
+    }
+  }
+`;
+```
 
 
 

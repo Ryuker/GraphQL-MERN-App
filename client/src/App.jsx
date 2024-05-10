@@ -4,8 +4,8 @@ import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
 
 // Pages
 import Home from './pages/Home';
-import NotFound from './pages/NotFound';
 import Project from './pages/Project';
+import NotFound from './pages/NotFound';
 
 const cache = new InMemoryCache({
   typePolicies: {
