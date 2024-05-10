@@ -3,6 +3,7 @@ import { FaList } from 'react-icons/fa';
 import { useMutation, useQuery } from '@apollo/client';
 import { GET_PROJECTS } from '../queries/projectQueries';
 import { GET_CLIENTS } from '../queries/clientQueries';
+import { ADD_PROJECT } from '../mutations/projectMutations';
 import Spinner from './Spinner';
 
 export default function AddProjectModal() {
@@ -14,12 +15,26 @@ export default function AddProjectModal() {
   // Get Clients for select
   const { loading, error, data } = useQuery(GET_CLIENTS);
 
+  const [ addProject ] = useMutation(ADD_PROJECT, {
+    variables: { name, description, status, clientId },
+    update(cache, { data: { addProject }}){
+      const { projects } = cache.readQuery({ query: GET_PROJECTS});
+
+      cache.writeQuery({
+        query: GET_PROJECTS,
+        data: { projects: [...projects, addProject] }
+      })
+     }
+  })
+
   const onSubmit = (e) => {
     e.preventDefault();
     
     if(name === '' || description === '' || status === ''){
       return alert('Please fill in all fields');
     } 
+
+    addProject(name, description, status, clientId);
 
     setName('');
     setDescription('');
