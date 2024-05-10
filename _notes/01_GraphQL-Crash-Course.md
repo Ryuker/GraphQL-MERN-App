@@ -1216,7 +1216,7 @@ const [clientId, setClientId] = useState('');
 const onSubmit = (e) => {
   e.preventDefault();
   
-  if(name === '' || description === '' || status === ''){
+  if(name === '' || description === '' || status === '' || clientId === ''){
     return alert('Please fill in all fields');
   } 
 
@@ -1332,7 +1332,7 @@ if (error) return 'Something Went Wrong';
 - Added `ADD_PROJECT` mutation to `mutations/projectMutations.jsx`
   - largely repetition of the addClient query
   - but status's type if of ProjectStatus, this type was defined on the backend
-  
+
 ``` JS projectMutations.jsx
 import { gql } from '@apollo/client';
 
@@ -1355,6 +1355,26 @@ const ADD_PROJECT = gql`
 
 export { ADD_PROJECT };
 ```
+
+- desctructured the `addProject` method from useMutation in AddProjectModal
+  - also updated the cache during this mutation
+``` JS AddProjectModal.jsx
+// Add Project Mutation
+const [ addProject ] = useMutation(ADD_PROJECT, {
+  variables: { name, description, status, clientId },
+  update(cache, { data: { addProject }}){
+    const { projects } = cache.readQuery({ query: GET_PROJECTS});
+
+    cache.writeQuery({
+      query: GET_PROJECTS,
+      data: { projects: [...projects, addProject] }
+    });
+    }
+})
+```
+- Called addProject in onSubmit `addProject(name, description, status, clientId);`
+
+
 
 
 

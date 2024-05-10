@@ -15,6 +15,7 @@ export default function AddProjectModal() {
   // Get Clients for select
   const { loading, error, data } = useQuery(GET_CLIENTS);
 
+  // Add Project Mutation
   const [ addProject ] = useMutation(ADD_PROJECT, {
     variables: { name, description, status, clientId },
     update(cache, { data: { addProject }}){
@@ -23,14 +24,14 @@ export default function AddProjectModal() {
       cache.writeQuery({
         query: GET_PROJECTS,
         data: { projects: [...projects, addProject] }
-      })
+      });
      }
   })
 
   const onSubmit = (e) => {
     e.preventDefault();
     
-    if(name === '' || description === '' || status === ''){
+    if(name === '' || description === '' || status === '' || clientId === ''){
       return alert('Please fill in all fields');
     } 
 
