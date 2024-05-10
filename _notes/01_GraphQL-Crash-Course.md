@@ -1055,7 +1055,7 @@ export default function Projects() {
 }
 ``` 
 
-# 23. React Router & Pages Setup
+# 23. React Router Setup
 - imported react-router-dom components in App.jsx | `import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';` 
 - modified return function of App.jsx
   - Wrapped all the contents into a `Router` element
@@ -1072,7 +1072,12 @@ export default function Projects() {
 </ApolloProvider>
 ```
 
-## Pages Setup
+# 24. Pages Setup
+- Added `pages` folder to src folder
+- Added files for `Home.jsx`, `NotFound.jsx` and `Project.jsx`
+
+## Home Page
+
 
 
 
