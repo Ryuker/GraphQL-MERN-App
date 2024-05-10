@@ -1107,6 +1107,19 @@ export default function Projects() {
   <Route path='*' element={<NotFound />} />
   ```
 
+## Project page
+- populated `Project` page with component boilerplate
+``` JS Project.jsx
+export default function Project() {
+  return (
+    <div>Project</div>
+  )
+}
+```
+- imported into App.jsx and added inside Routes component
+  - `<Route path='/projects/:id' element={<Project />} />` | We're using /:id so we can get a unique project by id
+  
+
 
 
 
