@@ -1374,6 +1374,8 @@ const [ addProject ] = useMutation(ADD_PROJECT, {
 ```
 - Called addProject in onSubmit `addProject(name, description, status, clientId);`
 
+# 26. Delete Project
+left vid at 02:55:07
 
 
 
