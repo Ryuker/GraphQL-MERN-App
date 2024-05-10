@@ -1077,6 +1077,19 @@ export default function Projects() {
 - Added files for `Home.jsx`, `NotFound.jsx` and `Project.jsx`
 
 ## Home Page
+- Populated return with components to display
+``` JS Home.jsx
+<>
+  <div className="d-flex gap-3 mb-4">
+    <AddClientModal />
+  </div>
+  <Projects />
+  <hr />
+  <Clients />
+</>
+```
+
+
 
 
 
