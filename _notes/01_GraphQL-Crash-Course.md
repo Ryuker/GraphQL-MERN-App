@@ -1520,6 +1520,26 @@ const onSubmit = (e) => {
 ```
 
 
+# 28. Deleting the Project when a Client is deleted
+## Updating the schema
+- on the server in `schema/schema.js` we update the delete client schema
+``` JS schema.js
+resolve(parent, args) {
+  Project.find({ clientId: args.id }).then(
+    projects => {
+      projects.forEach(project => project.deleteOne({}));
+    }
+  )
+```
+
+## Refetching the projects in the frontend when client is deleted
+- in the `ClientRow.jsx` component 
+  - commented out the cache update
+  - instead used refetchQueries
+``` JS ClientRow.js
+refetchQueries: [{ query: GET_CLIENTS }, { query: GET_PROJECTS }]
+```
+
 
 
 
