@@ -1540,6 +1540,13 @@ resolve(parent, args) {
 refetchQueries: [{ query: GET_CLIENTS }, { query: GET_PROJECTS }]
 ```
 
+# 29. Project Completed
+
+## Bonus features to add:
+[ ] client page
+[ ] edit client form
+[ ] update client of a project
+
 
 
 
