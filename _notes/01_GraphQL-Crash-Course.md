@@ -1375,7 +1375,50 @@ const [ addProject ] = useMutation(ADD_PROJECT, {
 - Called addProject in onSubmit `addProject(name, description, status, clientId);`
 
 # 26. Delete Project
-left vid at 02:55:07
+## Delete Project Mutation
+- added `DELETE_PROJECT` mutation and exported in `projectMutations.jsx`
+``` JS projectMutations.jsx
+const DELETE_PROJECT = gql`
+  mutation deleteProject($id: ID!) {
+    deleteProject(id: $id) {
+      id
+    }
+  }
+`;
+```
+
+## Delete Project Button Component
+- added `DeleteProjectButton.jsx` in components
+- imports :
+``` JS DeleteProjectButton.jsx
+import { useNavigate } from "react-router-dom";
+import { FaTrash } from "react-icons/fa";
+import { GET_PROJECTS } from "../queries/projectQueries";
+import { DELETE_PROJECT } from "../mutations/projectMutations";
+import { useMutation } from "@apollo/client";
+```
+
+- made a constant to useNavigate | `const navigate = useNavigate();`
+- specified the `deleteProject` mutation function
+  - we use the `onCompleted` field to set a callback to navigate, this takes us back to the homepage
+  - we then refetch all the projects so the up to date list of projects is displayed on the homepage
+``` JS DeleteProjectButton.jsx
+const [ deleteProject ] = useMutation(DELETE_PROJECT, {
+  variables: { id: projectId },
+  onCompleted: () => navigate('/'),
+  refetchQueries: [{query: GET_PROJECTS }]
+});
+```
+- return function contents for the button
+``` JS DeleteProjectButton.jsx
+<div className="d-flex mt-5 ms-auto">
+  <button className="btn btn-danger m-2" onClick={deleteProject}>
+    <FaTrash className="icon" />Delete Project
+  </button>
+</div>
+```
+- We then import `DeleteProjectButton` into the `Project.jsx` page and display it under client info
+
 
 
 
