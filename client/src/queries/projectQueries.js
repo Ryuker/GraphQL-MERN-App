@@ -27,4 +27,21 @@ const GET_PROJECT = gql`
   }
 `;
 
-export { GET_PROJECTS, GET_PROJECT };
+const GET_PROJECTS_BY_CLIENT = gql`
+  query GetProjectsByClient($clientId: ID!) {
+    projectsByClientId(clientId: $clientId) {
+      id
+      name
+      description
+      status
+      client {
+        id
+        name
+        email
+        phone
+      }
+    }
+  }
+`;
+
+export { GET_PROJECTS, GET_PROJECTS_BY_CLIENT, GET_PROJECT };
