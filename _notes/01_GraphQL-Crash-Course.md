@@ -1558,9 +1558,26 @@ refetchQueries: [{ query: GET_CLIENTS }, { query: GET_PROJECTS }]
 - Added `EditClientForm` component
 - Imported it into Client page
 
+# 32. BONUS FEATURE: Display all Projects of Client on Client page
+- added rootQuery on server, `projectByClientID` 
+- TODO: implement query on client and display the results
+``` JS 
+{
+  projectsByClientId(clientId: "663a2d7f5a9af05194355631"){
+    id
+    name
+    status
+    client{
+      id
+      name
+    }
+  }
+}
+```
+
 ## Bonus features to add:
 [ v ] client page
-[ ] edit client form
+[ v ] edit client form
 [ ] display client associated projects on the client page  
 [ ] update client of a project
 
