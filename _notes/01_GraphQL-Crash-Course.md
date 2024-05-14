@@ -1539,13 +1539,28 @@ resolve(parent, args) {
 ``` JS ClientRow.js
 refetchQueries: [{ query: GET_CLIENTS }, { query: GET_PROJECTS }]
 ```
-
+---
 # 29. Project Completed
+---
+
+
+# 30. BONUS FEATURE: Client Page
+- Added Client page using similar approach as above
+  - User clicks button on home page to navigate to the client page
+  - Client page fetches the info upon visit
+    - queries and mutations have been updated
+  - Added `DeleteClientButton.jsx` to components
+    - might change this to a generic delete button for both client and project pages
+
+
 
 ## Bonus features to add:
-[ ] client page
+[ v ] client page
 [ ] edit client form
+[ ] display client associated projects on the client page  
 [ ] update client of a project
+
+
 
 
 
