@@ -1570,6 +1570,10 @@ refetchQueries: [{ query: GET_CLIENTS }, { query: GET_PROJECTS }]
 [ ] update client of a project
 
 
+## Useful
+GraphQL query organization using groups - [explanation](https://graphql-dotnet.github.io/docs/getting-started/query-organization/)
+
+
 
 
 
