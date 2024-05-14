@@ -2,7 +2,7 @@ import { Link, useParams } from 'react-router-dom';
 import Spinner from '../components/Spinner';
 import ClientInfo from '../components/ClientInfo';
 import DeleteClientButton from '../components/DeleteClientButton';
-// import EditProjectForm from '../components/EditProjectForm';
+import EditClientForm from '../components/EditClientForm';
 import { useQuery } from '@apollo/client';
 import { GET_CLIENT } from '../queries/clientQueries';
 
@@ -25,7 +25,7 @@ export default function Client() {
 
           <ClientInfo client={data.client} />
 
-          {/* <EditProjectForm project={data.project} /> */}
+          <EditClientForm client={data.client} />
 
           <DeleteClientButton clientId={data.client.id} />
         </div>

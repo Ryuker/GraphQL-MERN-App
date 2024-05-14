@@ -1552,7 +1552,11 @@ refetchQueries: [{ query: GET_CLIENTS }, { query: GET_PROJECTS }]
   - Added `DeleteClientButton.jsx` to components
     - might change this to a generic delete button for both client and project pages
 
-
+# 31. BONUS FEATURE: Update Client Form
+- Added `UPDATE_CLIENT` to mutations
+- Added `updateClient` to mutations on server schema
+- Added `EditClientForm` component
+- Imported it into Client page
 
 ## Bonus features to add:
 [ v ] client page
