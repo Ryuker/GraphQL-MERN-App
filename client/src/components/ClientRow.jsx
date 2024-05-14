@@ -26,14 +26,13 @@ export default function ClientRow( { client }) {
       <td>{ client.phone }</td>
       <td>
         <div className='d-flex gap-2'>
+        <a className="btn btn-secondary btn-sm" href={`/clients/${client.id}`}> 
+            <IoPersonSharp />
+          </a>
           <button className="btn btn-danger btn-sm" onClick={deleteClient}> 
             <FaTrash />
           </button>
-          <a className="btn btn-secondary btn-sm" href={`/clients/${client.id}`}> 
-            <IoPersonSharp />
-          </a>
         </div>
-        
       </td>
     </tr>
   )
