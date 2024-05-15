@@ -1579,6 +1579,11 @@ refetchQueries: [{ query: GET_CLIENTS }, { query: GET_PROJECTS }]
 [ v ] display client associated projects on the client page  
 [ v ] change a client of a project
 
+[ ] Add a Task model
+[ ] Add queries for Tasks
+[ ] Add mutations for Tasks
+
+
 
 ## Useful
 GraphQL query organization using groups - [explanation](https://graphql-dotnet.github.io/docs/getting-started/query-organization/)
