@@ -1564,12 +1564,20 @@ refetchQueries: [{ query: GET_CLIENTS }, { query: GET_PROJECTS }]
 - Displayed client associated projects using above query
 
 # 33. BONUS FEATURE: Change a client of a project
+- added clientId to updateProject mutation on server and resolver
+- updated UpdateProject mutation on client to require clientId 
+- updated EditProjectForm with
+  - a clientId state
+  - a query to get all the clients available
+  - a select field with all the clients as options
+    - select field displays the projects current client as default
+  - made sure clientId is passed in updateClient
 
 ## Bonus features to add:
 [ v ] client page
 [ v ] edit client form
 [ v ] display client associated projects on the client page  
-[ ] change a client of a project
+[ v ] change a client of a project
 
 
 ## Useful

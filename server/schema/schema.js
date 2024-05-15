@@ -196,7 +196,8 @@ const mutation = new GraphQLObjectType({
               progress: { value: `In Progress` },
               completed: { value: 'Completed' },
             }}),
-        }, 
+        },
+        clientId: { type: GraphQLNonNull(GraphQLID)}
       },
       resolve(parent, args) {
         return Project.findByIdAndUpdate(
@@ -205,7 +206,8 @@ const mutation = new GraphQLObjectType({
             $set: {
               name: args.name,
               description: args.description,
-              status: args.status
+              status: args.status,
+              clientId: args.clientId 
             },
           },
           { new: true }

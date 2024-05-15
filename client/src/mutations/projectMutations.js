@@ -18,8 +18,8 @@ const ADD_PROJECT = gql`
 `;
 
 const UPDATE_PROJECT = gql`
-  mutation UpdateProject($id: ID!, $name: String!, $description: String!, $status: ProjectStatusUpdate!) {
-    updateProject(id: $id, name: $name, description: $description, status: $status) {
+  mutation UpdateProject($id: ID!, $name: String!, $description: String!, $status: ProjectStatusUpdate!, $clientId: ID!) {
+    updateProject(id: $id, name: $name, description: $description, status: $status, clientId: $clientId) {
       id
       name
       description

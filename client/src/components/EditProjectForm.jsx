@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { useMutation } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import { GET_PROJECT } from "../queries/projectQueries";
+import { GET_CLIENTS } from "../queries/clientQueries";
 import { UPDATE_PROJECT } from "../mutations/projectMutations";
-import {GraphQLEnumType} from 'graphql';
-
 
 export default function EditProjectForm( { project } ) {
   
@@ -14,20 +13,26 @@ export default function EditProjectForm( { project } ) {
     project.status == 'In Progress' &&  'progress' ||
     project.status == 'Completed' &&  'completed'
   );
+  const [clientId, setClientId] = useState(project.client.id);
+
+  // Get Clients for select
+  const { loading, error, data } = useQuery(GET_CLIENTS);
 
   const [updateProject] = useMutation(UPDATE_PROJECT, {
-    variables: { id: project.id, name, description, status },
+    variables: { id: project.id, name, description, status, clientId },
     refetchQueries: [{ query: GET_PROJECT, variables: { id: project.id }}]
   })
 
   const onSubmit = (e) => {
     e.preventDefault();
 
-    if (!name || !description || !status ){
+    if (!name || !description || !status || !clientId ){
       return alert('Please fill out all fields');
     }
 
-    updateProject(name, description, status);
+    console.log(name, description, status, clientId);
+
+    updateProject(name, description, status, clientId);
   };
 
   return (
@@ -59,6 +64,18 @@ export default function EditProjectForm( { project } ) {
               <option value="completed">Completed</option>
             </select>
         </div>
+        {!loading && !error && 
+          <div className="mb-3">
+            <label className="form-label">Client</label>
+            <select id="clientId" className="form-select" 
+            value={clientId} onChange={(e) => setClientId(e.target.value)}>
+              {data.clients.map(client => (
+                <option key={client.id} value={client.id}>{client.name}</option>
+              ))}
+            </select>
+          </div>
+        }
+        
         <button type="submit" className="btn btn-primary">Submit</button>
       </form>
     </div>
