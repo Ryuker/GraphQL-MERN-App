@@ -5,6 +5,7 @@ import DeleteClientButton from '../components/DeleteClientButton';
 import EditClientForm from '../components/EditClientForm';
 import { useQuery } from '@apollo/client';
 import { GET_CLIENT } from '../queries/clientQueries';
+import ClientProjects from '../components/ClientProjects';
 
 export default function Client() {
   const { id } = useParams();
@@ -24,6 +25,8 @@ export default function Client() {
           <h1>{data.client.name}</h1>
 
           <ClientInfo client={data.client} />
+
+          <ClientProjects clientId={data.client.id} />
 
           <EditClientForm client={data.client} />
 

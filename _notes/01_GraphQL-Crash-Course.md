@@ -1560,13 +1560,13 @@ refetchQueries: [{ query: GET_CLIENTS }, { query: GET_PROJECTS }]
 
 # 32. BONUS FEATURE: Display all Projects of Client on Client page
 - added rootQuery on server, `projectByClientID` 
-- implement query on client, `GET_PROJECTS_BY_CLIENT`
-- TODO: Display client associated projects using above query
+- implemented query on client, `GET_PROJECTS_BY_CLIENT`
+- Displayed client associated projects using above query
 
 ## Bonus features to add:
 [ v ] client page
 [ v ] edit client form
-[ in progress ] display client associated projects on the client page  
+[ v ] display client associated projects on the client page  
 [ ] update client of a project
 
 
