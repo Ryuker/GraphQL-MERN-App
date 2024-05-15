@@ -1543,7 +1543,7 @@ refetchQueries: [{ query: GET_CLIENTS }, { query: GET_PROJECTS }]
 # 29. Project Completed
 ---
 
-
+# Bonus Features (implemented my self)
 # 30. BONUS FEATURE: Client Page
 - Added Client page using similar approach as above
   - User clicks button on home page to navigate to the client page
@@ -1563,11 +1563,13 @@ refetchQueries: [{ query: GET_CLIENTS }, { query: GET_PROJECTS }]
 - implemented query on client, `GET_PROJECTS_BY_CLIENT`
 - Displayed client associated projects using above query
 
+# 33. BONUS FEATURE: Change a client of a project
+
 ## Bonus features to add:
 [ v ] client page
 [ v ] edit client form
 [ v ] display client associated projects on the client page  
-[ ] update client of a project
+[ ] change a client of a project
 
 
 ## Useful
