@@ -2,13 +2,18 @@ import { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { GET_PROJECT } from "../queries/projectQueries";
 import { UPDATE_PROJECT } from "../mutations/projectMutations";
-
+import {GraphQLEnumType} from 'graphql';
 
 
 export default function EditProjectForm( { project } ) {
+  
   const [name, setName] = useState(project.name);
   const [description, setDescription] = useState(project.description);
-  const [status, setStatus] = useState('');
+  const [status, setStatus] = useState(
+    project.status == 'Not Started' &&  'new' ||
+    project.status == 'In Progress' &&  'progress' ||
+    project.status == 'Completed' &&  'completed'
+  );
 
   const [updateProject] = useMutation(UPDATE_PROJECT, {
     variables: { id: project.id, name, description, status },
@@ -18,12 +23,11 @@ export default function EditProjectForm( { project } ) {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    if (!name || !description || !status){
+    if (!name || !description || !status ){
       return alert('Please fill out all fields');
     }
 
     updateProject(name, description, status);
-
   };
 
   return (
@@ -48,7 +52,7 @@ export default function EditProjectForm( { project } ) {
           <label className="form-label">Status</label>
           <select 
             className="form-select" 
-            id="status" value={status} 
+            id="status" value={status}
             onChange={ (e) => setStatus(e.target.value) }>
               <option value="new">Not Started</option>
               <option value="progress">In Progress</option>
