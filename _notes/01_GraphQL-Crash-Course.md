@@ -1574,10 +1574,15 @@ refetchQueries: [{ query: GET_CLIENTS }, { query: GET_PROJECTS }]
   - made sure clientId is passed in updateClient
 
 # 34. BONUS FEATURE: Supporting Tasks
+
+## Server Implementations
 - Added `models/Task` model
 - Added `TaskType` to schema.js, this uses the Task model
 - Added tasks and task field to rootquery of schema.js
 - Added tasksByProjectId field to rootquery
+- Added `addTask` mutation 
+
+# Client Implementations
 
 
 

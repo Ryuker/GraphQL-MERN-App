@@ -251,6 +251,33 @@ const mutation = new GraphQLObjectType({
           { new: true }
         );
       }
+    },
+    // Add task
+    addTask: {
+      type: TaskType,
+      args: {
+        name: { type: GraphQLNonNull(GraphQLString)},
+        description: { type: GraphQLString},
+        status: {
+          type: new GraphQLEnumType({
+            name: 'TaskStatus',
+            values: {
+              new: { value: 'Not Started' },
+              progress: { value: 'In Progress' },
+              completed: { value: 'Completed' },
+            }}),
+          defaultValue: 'Not Started',
+        },
+        projectId: { type: GraphQLNonNull(GraphQLID)},
+      },
+      resolve(parent, args){
+        const task = new Task({
+          name: args.name,
+          description: args.description,
+          status: args.status,
+          projectId: args.projectId,
+        });
+      }
     }
   }
 });
