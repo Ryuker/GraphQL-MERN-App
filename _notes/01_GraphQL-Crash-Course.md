@@ -1593,8 +1593,11 @@ refetchQueries: [{ query: GET_CLIENTS }, { query: GET_PROJECTS }]
 ## Add Task Button on Home Page
 - Added `ADD_TASK` mutation to client
 - Added `AddTaskModel` component
+  - this handles querying the projects from the api and sending the addTask mutation to the api
 - Added `btn-tertiary` class to index.css
 - Added `tasks` field to cache in `App.jsx`
+
+# Individual Task Page and Routes
 
 
 ## Bonus features to add:
@@ -1608,9 +1611,8 @@ refetchQueries: [{ query: GET_CLIENTS }, { query: GET_PROJECTS }]
 [ v ] Add mutations for Tasks
 [ v ] Display Tasks on Home page
 
-[ ] Add AddTask button to Home page
-[ ] Add 
-[ ] Add Task page
+[ v ] Add AddTask button to Home page
+[ ] Add a Task page
 [ ] Support task deletion on Task page 
 [ ] Add TaskUpdateForm to Task page 
 
