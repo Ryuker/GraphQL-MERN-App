@@ -1577,6 +1577,8 @@ refetchQueries: [{ query: GET_CLIENTS }, { query: GET_PROJECTS }]
 - Added `models/Task` model
 - Added `TaskType` to schema.js, this uses the Task model
 - Added tasks and task field to rootquery of schema.js
+- Added tasksByProjectId field to rootquery
+
 
 
 ## Bonus features to add:
