@@ -1573,6 +1573,9 @@ refetchQueries: [{ query: GET_CLIENTS }, { query: GET_PROJECTS }]
     - select field displays the projects current client as default
   - made sure clientId is passed in updateClient
 
+# 34. BONUS FEATURE: Supporting Tasks
+- 
+
 ## Bonus features to add:
 [ v ] client page
 [ v ] edit client form
