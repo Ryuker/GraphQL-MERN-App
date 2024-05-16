@@ -1581,6 +1581,7 @@ refetchQueries: [{ query: GET_CLIENTS }, { query: GET_PROJECTS }]
 - Added tasks and task field to rootquery of schema.js
 - Added tasksByProjectId field to rootquery
 - Added `addTask` mutation 
+- Added `deleteTask` mutation
 
 # Client Implementations
 

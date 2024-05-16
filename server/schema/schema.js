@@ -281,6 +281,16 @@ const mutation = new GraphQLObjectType({
 
         return task.save();
       }
+    },
+    // Delete task
+    deleteTask: {
+      type: TaskType,
+      args: {
+        id: { type: GraphQLNonNull(GraphQLID)}
+      },
+      resolve(parent, args){
+        return Task.findByIdAndDelete(args.id);
+      }
     }
   }
 });
