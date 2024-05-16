@@ -2,6 +2,7 @@ import AddClientModal from '../components/AddClientModal';
 import AddProjectModal from '../components/AddProjectModal';
 import Projects from '../components/Projects';
 import Clients from '../components/Clients';
+import Tasks from '../components/Tasks';
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
         <AddProjectModal />
       </div>
       <Projects />
+      <Tasks />
       <hr />
       <Clients />
     </>

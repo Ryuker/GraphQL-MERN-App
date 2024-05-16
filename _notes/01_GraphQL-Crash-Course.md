@@ -1585,7 +1585,10 @@ refetchQueries: [{ query: GET_CLIENTS }, { query: GET_PROJECTS }]
 - Added `updateTask` mutation
 
 # Client Implementations
-
+- Added GET_TASKS querie to client
+- Added `Tasks` component
+- Added `TaskCard` component and used in `Tasks`
+- Rendered `Tasks` component in Home page
 
 
 ## Bonus features to add:
