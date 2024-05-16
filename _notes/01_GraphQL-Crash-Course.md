@@ -1584,11 +1584,13 @@ refetchQueries: [{ query: GET_CLIENTS }, { query: GET_PROJECTS }]
 - Added `deleteTask` mutation
 - Added `updateTask` mutation
 
-# Client Implementations
+## Client Implementations
 - Added GET_TASKS querie to client
 - Added `Tasks` component
 - Added `TaskCard` component and used in `Tasks`
 - Rendered `Tasks` component in Home page
+
+## Add Task Button on Home Page
 
 
 ## Bonus features to add:
@@ -1597,11 +1599,16 @@ refetchQueries: [{ query: GET_CLIENTS }, { query: GET_PROJECTS }]
 [ v ] display client associated projects on the client page  
 [ v ] change a client of a project
 
-[ ] Add a Task model
-[ ] Add queries for Tasks
-[ ] Add mutations for Tasks
+[ v ] Add a Task model
+[ v ] Add queries for Tasks
+[ v ] Add mutations for Tasks
+[ v ] Display Tasks on Home page
 
-
+[ ] Add AddTask button to Home page
+[ ] Add 
+[ ] Add Task page
+[ ] Support task deletion on Task page 
+[ ] Add TaskUpdateForm to Task page 
 
 ## Useful
 GraphQL query organization using groups - [explanation](https://graphql-dotnet.github.io/docs/getting-started/query-organization/)
