@@ -1591,6 +1591,10 @@ refetchQueries: [{ query: GET_CLIENTS }, { query: GET_PROJECTS }]
 - Rendered `Tasks` component in Home page
 
 ## Add Task Button on Home Page
+- Added `ADD_TASK` mutation to client
+- Added `AddTaskModel` component
+- Added `btn-tertiary` class to index.css
+- Added `tasks` field to cache in `App.jsx`
 
 
 ## Bonus features to add:

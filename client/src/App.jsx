@@ -21,6 +21,11 @@ const cache = new InMemoryCache({
           merge(existing, incoming) {
             return incoming
           }
+        },
+        tasks: {
+          merge(existing, incoming) {
+            return incoming
+          }
         }
       }
     }

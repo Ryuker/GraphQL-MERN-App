@@ -21,7 +21,8 @@ code {
   margin-right: 10px;
 }
 
-.btn {
+.btn, 
+.btn:hover {
   font-size: 15px;
 }
 
@@ -36,12 +37,27 @@ code {
   opacity: 0.9;
 }
 
+
+.btn-tertiary,
+.btn-tertiary:hover{
+  color: #fff;
+}
+
 .btn-secondary {
   background-color: #7430f9;
 }
 
 .btn-secondary:hover {
   background-color: #7430f9;
+  opacity: 0.9;
+}
+
+.btn-tertiary {
+  background-color: #00ab50;
+}
+
+.btn-tertiary:hover {
+  background-color: #00ab50;
   opacity: 0.9;
 }
 
