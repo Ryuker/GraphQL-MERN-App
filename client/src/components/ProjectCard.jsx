@@ -11,9 +11,14 @@ export default function ProjectCard( { project } ) {
               View
             </a>
           </div>
-          <p className="small">
-            Status: <strong>{project.status}</strong>
-          </p>
+          <div className="d-flex justify-content-between mt-2">
+            <p className="small">
+              Status: <strong>{project.status}</strong>
+            </p>
+            <p className="small">
+              Client: <strong>{project.client.name}</strong>
+            </p>
+          </div>
         </div>
       </div>
     </div>
