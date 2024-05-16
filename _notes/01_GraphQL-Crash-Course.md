@@ -1574,7 +1574,7 @@ refetchQueries: [{ query: GET_CLIENTS }, { query: GET_PROJECTS }]
   - made sure clientId is passed in updateClient
 
 # 34. BONUS FEATURE: Supporting Tasks
-- 
+- Added `models/Task` model
 
 ## Bonus features to add:
 [ v ] client page
