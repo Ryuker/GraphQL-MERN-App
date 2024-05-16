@@ -1,6 +1,7 @@
 // Mongoose models
 const Project = require('../models/Project');
 const Client = require('../models/Client');
+const Task = require('../models/Task');
 
 const { 
   GraphQLObjectType, 
@@ -36,6 +37,22 @@ const ProjectType = new GraphQLObjectType({
       type: ClientType,
       resolve(parent, args){
         return Client.findById(parent.clientId);
+      }
+    }
+  })
+});
+
+// Task Type
+const TaskType = new GraphQLObjectType({
+  name: 'Task',
+  fields: () => ({
+    id: { type: GraphQLID },
+    name: { type: GraphQLString },
+    description: { type: GraphQLString },
+    status: {
+      type: ProjectType,
+      resolve(parent, args){
+        return Project.findById(parent.projectId);
       }
     }
   })
