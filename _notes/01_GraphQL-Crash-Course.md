@@ -1582,6 +1582,7 @@ refetchQueries: [{ query: GET_CLIENTS }, { query: GET_PROJECTS }]
 - Added tasksByProjectId field to rootquery
 - Added `addTask` mutation 
 - Added `deleteTask` mutation
+- Added `updateTask` mutation
 
 # Client Implementations
 
