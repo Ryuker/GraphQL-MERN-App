@@ -14,4 +14,21 @@ const GET_TASKS = gql`
   }
 `;
 
-export { GET_TASKS };
+const GET_TASK = gql`
+  query GetTask($id: ID!) {
+    task(id: $id) {
+      id
+      name
+      description
+      status
+      project {
+        id
+        name
+        description
+        status
+      }
+    }
+  }
+`;
+
+export { GET_TASKS, GET_TASK };

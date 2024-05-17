@@ -1600,6 +1600,7 @@ refetchQueries: [{ query: GET_CLIENTS }, { query: GET_PROJECTS }]
 # Individual Task Page and Routes
 - Added `Task` page
 - Added `Task` route in `App.jsx`
+- Added `GET_TASK` query to taskQueries
 
 
 ## Bonus features to add:
