@@ -1607,9 +1607,14 @@ refetchQueries: [{ query: GET_CLIENTS }, { query: GET_PROJECTS }]
 - Rendered DeleteTaskButton on `Task` page
 - Added `DELETE_TASK` mutation 
 
-# Update Task form and mutation
+## Update Task form and mutation
 - Added `EditTaskForm` component
 - Added `UPDATE_TASK` mutation
+
+## Display Project Info
+- Added `ProjectInfo` component and rendered on Task page
+- Updated `GET_TASK` query to return project name as well
+
 
 
 ## Bonus features to add:
@@ -1626,7 +1631,8 @@ refetchQueries: [{ query: GET_CLIENTS }, { query: GET_PROJECTS }]
 [ v ] Add AddTask button to Home page
 [ v ] Add a Task page
 [ v ] Support task deletion on Task page 
-[ ] Add TaskUpdateForm to Task page 
+[ v ] Add TaskUpdateForm to Task page 
+[] display project on Task page
 
 ## Useful
 GraphQL query organization using groups - [explanation](https://graphql-dotnet.github.io/docs/getting-started/query-organization/)

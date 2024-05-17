@@ -26,6 +26,9 @@ const GET_TASK = gql`
         name
         description
         status
+        client {
+          name
+        }
       }
     }
   }

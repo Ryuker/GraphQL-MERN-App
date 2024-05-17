@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import Spinner from '../components/Spinner';
-// import ClientInfo from '../components/ClientInfo';
+import ProjectInfo from '../components/ProjectInfo';
 import DeleteTaskButton from '../components/DeleteTaskButton';
 import EditTaskForm from '../components/EditTaskForm';
 import { useQuery } from '@apollo/client';
@@ -27,7 +27,7 @@ export default function Task() {
           <h5 className="mt-3">Task Status</h5>
           <p className="lead">{ data.task.status} </p>
 
-          {/* <ClientInfo client={data.client} /> */}
+          <ProjectInfo project={data.task.project} />
 
           {/* <ClientProjects clientId={data.client.id} /> */}
 
