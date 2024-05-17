@@ -1602,11 +1602,14 @@ refetchQueries: [{ query: GET_CLIENTS }, { query: GET_PROJECTS }]
 - Added `Task` route in `App.jsx`
 - Added `GET_TASK` query to taskQueries
 
-## Delete Task Button
+## Delete Task Button and mutation
 - Added `DeleteTaskButton` component
 - Rendered DeleteTaskButton on `Task` page
 - Added `DELETE_TASK` mutation 
 
+# Update Task form and mutation
+- Added `EditTaskForm` component
+- Added `UPDATE_TASK` mutation
 
 
 ## Bonus features to add:

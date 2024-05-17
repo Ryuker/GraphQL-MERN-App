@@ -2,7 +2,7 @@ import { Link, useParams } from 'react-router-dom';
 import Spinner from '../components/Spinner';
 // import ClientInfo from '../components/ClientInfo';
 import DeleteTaskButton from '../components/DeleteTaskButton';
-// import EditClientForm from '../components/EditClientForm';
+import EditTaskForm from '../components/EditTaskForm';
 import { useQuery } from '@apollo/client';
 import { GET_TASK } from '../queries/taskQueries';
 
@@ -31,7 +31,7 @@ export default function Task() {
 
           {/* <ClientProjects clientId={data.client.id} /> */}
 
-          {/* <EditClientForm client={data.client} /> */}
+          <EditTaskForm task={data.task} />
 
           <DeleteTaskButton taskId={data.task.id} />
         </div>

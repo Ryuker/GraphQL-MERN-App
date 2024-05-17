@@ -15,6 +15,23 @@ const ADD_TASK = gql`
   }
 `;
 
+const UPDATE_TASK = gql`
+  mutation UpdateTask($id: ID!, $name: String!, $description: String!, $status: TaskStatusUpdate!, $projectId: ID!) {
+    updateTask(id: $id, name: $name, description: $description, status: $status, projectId: $projectId) {
+      id
+      name
+      description
+      status
+      project {
+        id
+        name
+        description
+        status
+      }
+    }
+  }
+`;
+
 const DELETE_TASK = gql`
   mutation DeleteTask($id: ID!) {
     deleteTask(id: $id) {
@@ -23,4 +40,4 @@ const DELETE_TASK = gql`
   }
 `;
 
-export { ADD_TASK, DELETE_TASK };
+export { ADD_TASK, UPDATE_TASK, DELETE_TASK };
