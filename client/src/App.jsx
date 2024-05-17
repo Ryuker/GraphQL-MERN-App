@@ -6,6 +6,7 @@ import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
 import Home from './pages/Home';
 import Project from './pages/Project';
 import Client from './pages/Client';
+import Task from './pages/Task';
 import NotFound from './pages/NotFound';
 
 const cache = new InMemoryCache({
@@ -49,6 +50,7 @@ function App() {
               <Route path='/' element={<Home />} />
               <Route path='/projects/:id' element={<Project />} />
               <Route path='/clients/:id' element={<Client />} />
+              <Route path='/tasks/:id' element={<Task />} />
               <Route path='*' element={<NotFound />} />
             </Routes>
           </div>
