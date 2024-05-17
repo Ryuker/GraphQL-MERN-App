@@ -1615,6 +1615,10 @@ refetchQueries: [{ query: GET_CLIENTS }, { query: GET_PROJECTS }]
 - Added `ProjectInfo` component and rendered on Task page
 - Updated `GET_TASK` query to return project name as well
 
+## Display Tasks on Project Page
+- Added `ProjectsTasks` component
+  - this queries and displays the tasks using the TaskCard component.
+- Rendered `ProjectTasks`component on Project page
 
 
 ## Bonus features to add:
@@ -1633,7 +1637,7 @@ refetchQueries: [{ query: GET_CLIENTS }, { query: GET_PROJECTS }]
 [ v ] Support task deletion on Task page 
 [ v ] Add TaskUpdateForm to Task page 
 [ v ] display project on Task page
-[ ] display Tasks on Project page
+[ v ] display Tasks on Project page
 
 ## Useful
 GraphQL query organization using groups - [explanation](https://graphql-dotnet.github.io/docs/getting-started/query-organization/)

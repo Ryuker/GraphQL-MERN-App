@@ -113,7 +113,7 @@ const RootQuery = new GraphQLObjectType({
       type: new GraphQLList(TaskType),
       args: { projectId: { type: GraphQLID }},
       resolve (parent,args){
-        const tasks= Task.find({projecId: args.projectId});
+        const tasks= Task.find({projectId: args.projectId});
         return tasks;
       }
     },

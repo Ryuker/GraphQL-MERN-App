@@ -34,4 +34,23 @@ const GET_TASK = gql`
   }
 `;
 
-export { GET_TASKS, GET_TASK };
+const GET_TASKS_BY_PROJECT = gql`
+  query GetTasksByProject($projectId: ID!) {
+    tasksByProjectId(projectId: $projectId) {
+      id
+      name
+      description
+      status
+      project {
+        id
+        name
+        status
+        client{
+          name
+        }
+      }
+    }
+  }
+`;
+
+export { GET_TASKS, GET_TASK, GET_TASKS_BY_PROJECT };
