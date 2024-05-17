@@ -15,4 +15,12 @@ const ADD_TASK = gql`
   }
 `;
 
-export { ADD_TASK };
+const DELETE_TASK = gql`
+  mutation DeleteTask($id: ID!) {
+    deleteTask(id: $id) {
+      id
+    }
+  }
+`;
+
+export { ADD_TASK, DELETE_TASK };

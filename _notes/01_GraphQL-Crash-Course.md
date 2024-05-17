@@ -1597,10 +1597,16 @@ refetchQueries: [{ query: GET_CLIENTS }, { query: GET_PROJECTS }]
 - Added `btn-tertiary` class to index.css
 - Added `tasks` field to cache in `App.jsx`
 
-# Individual Task Page and Routes
+## Individual Task Page and Routes
 - Added `Task` page
 - Added `Task` route in `App.jsx`
 - Added `GET_TASK` query to taskQueries
+
+## Delete Task Button
+- Added `DeleteTaskButton` component
+- Rendered DeleteTaskButton on `Task` page
+- Added `DELETE_TASK` mutation 
+
 
 
 ## Bonus features to add:
@@ -1615,7 +1621,7 @@ refetchQueries: [{ query: GET_CLIENTS }, { query: GET_PROJECTS }]
 [ v ] Display Tasks on Home page
 
 [ v ] Add AddTask button to Home page
-[ ] Add a Task page
+[ v ] Add a Task page
 [ ] Support task deletion on Task page 
 [ ] Add TaskUpdateForm to Task page 
 
