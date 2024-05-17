@@ -33,7 +33,7 @@ export default function Task() {
 
           {/* <EditClientForm client={data.client} /> */}
 
-          <DeleteTaskButton clientId={data.task.id} />
+          <DeleteTaskButton taskId={data.task.id} />
         </div>
       )}
     </>

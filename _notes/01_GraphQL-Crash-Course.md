@@ -1622,7 +1622,7 @@ refetchQueries: [{ query: GET_CLIENTS }, { query: GET_PROJECTS }]
 
 [ v ] Add AddTask button to Home page
 [ v ] Add a Task page
-[ ] Support task deletion on Task page 
+[ v ] Support task deletion on Task page 
 [ ] Add TaskUpdateForm to Task page 
 
 ## Useful
