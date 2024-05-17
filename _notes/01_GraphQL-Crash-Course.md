@@ -1598,6 +1598,8 @@ refetchQueries: [{ query: GET_CLIENTS }, { query: GET_PROJECTS }]
 - Added `tasks` field to cache in `App.jsx`
 
 # Individual Task Page and Routes
+- Added `Task` page
+- 
 
 
 ## Bonus features to add:
